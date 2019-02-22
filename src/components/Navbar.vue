@@ -16,6 +16,19 @@
     </v-toolbar>
 
     <v-navigation-drawer class="indigo" app v-model="drawer">
+      <v-layout column align-center>
+        <v-flex mt-5>
+          <v-avatar size="100">
+            <img src="https://vuetifyjs.com/apple-touch-icon-180x180.png" alt="avatar">
+          </v-avatar>
+        </v-flex>
+        <v-flex>
+          <p class="display-1 white--text mt-2">Vuetify</p>
+        </v-flex>
+        <v-flex>
+          <Popup />
+        </v-flex>
+      </v-layout>
       <v-list>
         <v-list-tile v-for="(item, index) in items" :key="index" router :to="item.route">
           <v-list-tile-action>
@@ -31,6 +44,9 @@
 </template>
 
 <script>
+
+import Popup from '@/components/Popup'
+
 export default {
   data() {
     return {
@@ -41,7 +57,8 @@ export default {
         {icon: 'tag_faces', titulo:'Perfil', route: {name:'perfil'}},
       ]
     };
-  }
+  },
+  components:{Popup}
 };
 </script>
 
